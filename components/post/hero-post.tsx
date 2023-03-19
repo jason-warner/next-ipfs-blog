@@ -1,8 +1,8 @@
 import Avatar from './avatar'
-import DateFormatter from './date-formatter'
+import DateFormatter from '../util/date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
-import type Author from '../interfaces/author'
+import type Author from '../../interfaces/author'
 
 type Props = {
   title: string
@@ -43,7 +43,13 @@ const HeroPost = ({
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar name={author.name} picture={author.picture} />
+          <Link
+            target="_blank"
+            href={`https://twitter.com/${author.twitterHandle}`}
+            className="hover:underline"
+          >
+            <Avatar name={author.name} picture={author.picture} />
+          </Link>
         </div>
       </div>
     </section>
